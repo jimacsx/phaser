@@ -9,6 +9,8 @@ window.onload = function() {
 	});
 
 	var gameStarted = false;
+
+	var pausa = false;
 	// first function to be called, when the game preloads I am loading the sprite sheet with all game tiles
 	function onPreload() {
 		game.load.spritesheet('logo','logo-sectorcine.png');
@@ -149,6 +151,10 @@ window.onload = function() {
 		// normall, onResize is called each time the browser is resized, anyway I am calling it the first time
 		// to place all responsive elements in their right positions.
     onResize();
+
+		//game.input.onDown.add(restart, this);
+		// Add a input listener that can help us return from being paused
+    game.input.onDown.add(unpause, self);
 	}
 	function actionPlay () {
 		//ocultamos texto y boton de pantalla 1
@@ -238,6 +244,8 @@ window.onload = function() {
 			game.physics.arcade.overlap(leo, oscares, recogerOscar, null, this);
 			//mandamos a llamar función gameOver cada que haya collision entre cherry y leo
 			game.physics.arcade.overlap(leo, cherries, gameOver, null, this);
+
+			//onClick(pausa);
 		}
 	}
 
@@ -276,24 +284,55 @@ window.onload = function() {
 		sndPunto.play();
 	}
 
+	// And finally the method that handels the pause menu
+  function unpause(event){
+    // Only act if paused
+    if(game.paused){
+			// Unpause the game
+			console.log("despausar");
+      game.paused = false;
+			instructionsText.visible = true;
+			ups2Text.visible = false;
+			atrapasteText.visible = false;
+		}
+	}
+
 	function gameOver(leo, cherry){
 		//termina juego
-		game.nivel = 0;
-		gameStarted = false;
-		move.kill();
-    move2.kill();
-		cherry.kill();
-		ups2Text.visible = true;
+		//game.nivel = 0;
+		//gameStarted = false;
+		//move.kill();
+    //move2.kill();
+		//cherry.kill();
+		//pausamos juego
+		//console.log("gameOver");
+		//pausa = true;
+		game.paused = true;
+		/*ups2Text.visible = true;
 		atrapasteText.setText('Atrapaste '+game.puntaje+' estatuillas');
 		atrapasteText.visible = true;
-		boton2.visible = true;
+		boton2.visible = true;*/
+	}
 
+	function onClick(pausa) {
+		if(pausa){
+			game.paused = true;
+			ups2Text.visible = true;
+			atrapasteText.setText('Atrapaste '+game.puntaje+' estatuillas');
+			atrapasteText.visible = true;
+			boton2.visible = true;
+		}else{
+			game.resume = true;
+		}
+		pausa = !pausa;
 	}
 	function actionPlayAgain () {
+		console.log("play again");
 		//reiniciamos nivel
 		game.nivel = 1;
 		game.subirNivel = 0;
 		//iniciar juego de nuevo
+		//game.paused = false;
 		gameStarted = true;
 		//ocultamos texto y boton de pantalla 1
 		ups2Text.visible = false;
@@ -305,6 +344,8 @@ window.onload = function() {
 		move2.visible = true;
 		move.revive();
     move2.revive();
+
+		return true;
 	}
 
 	function subirNivel(){
@@ -317,3 +358,8 @@ window.onload = function() {
  		console.log('Nivel: '+game.nivel);
 	}
 }
+
+/*
+ball.body.velocity.setTo(0, 0);
+http://joelwalls.com/2015/07/tutorial-programacion-de-juegos-con-phaser-parte-2/
+*/
