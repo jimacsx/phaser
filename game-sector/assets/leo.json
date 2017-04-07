@@ -1,0 +1,36 @@
+{"frames": [
+
+{
+	"filename": "feliz.png",
+	"frame": {"x":1,"y":1,"w":77,"h":167},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":77,"h":167},
+	"sourceSize": {"w":77,"h":167}
+},
+{
+	"filename": "neutro.png",
+	"frame": {"x":1,"y":170,"w":77,"h":167},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":77,"h":167},
+	"sourceSize": {"w":77,"h":167}
+},
+{
+	"filename": "triste.png",
+	"frame": {"x":1,"y":339,"w":77,"h":167},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":77,"h":167},
+	"sourceSize": {"w":77,"h":167}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "leo.png",
+	"format": "RGBA8888",
+	"size": {"w":79,"h":507},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:651160fb1687bb0eb071549ac92f1a13:c7d35c3f420b2ddba22e5b72d1ba0a69:6098f33f1ec5cec7eb03e0707d1da401$"
+}
+}

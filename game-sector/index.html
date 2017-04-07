@@ -2,18 +2,23 @@
 <html>
 	<head>
 		<title>Sector Cine | Juego</title>
-		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">-->
-	<style type="text/css">
-		/*1280 x 720*/
-		body{
-			background: #000000;
-			padding:0px;
-			margin:0px;
-		}
-	</style>
-	<script src="phaser.min.js"></script>
-     <script src = "game.js"></script>
+		<meta name='viewport' content='initial-scale=0.5, maximum-scale=0.5, user-scalable=0, width=device-width' />
+		<!--<meta name='viewport' content='user-scalable=0'>-->
+		<link rel="stylesheet" href="assets/css/game.css">
+		<script src="phaser.min.js"></script>
+  	<script src = "game.js"></script>
 	</head>
 	<body>
+		<div class="portrait">
+			<div class="portrait__content">
+				<h1 class="portrait__title">¡Ups! Algo pasó.</h1>
+				<p class="portrait__text">En lo que revisamos qué es, juega <br>con "Leo" ayudándolo a atrapar estatuillas.</p>
+				<h2 class="portrait__title">Gira tu teléfono</h2>
+				<img src="assets/images/gira.svg" class="portrait__gira" alt="gira tu teléfono">
+				<img src="assets/images/leeeo.png" class="portrait__leo" alt="leo">
+				<img src="assets/images/carrete-mobile.png" class="portrait__carrete" alt="carrete">
+			</div>
+		</div>
+		<div id="gameDiv" class="game"></div>
 	</body>
 </html>
