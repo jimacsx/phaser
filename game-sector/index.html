@@ -2,11 +2,14 @@
 <html>
 	<head>
 		<title>Sector Cine | Juego</title>
-		<meta name='viewport' content='initial-scale=0.5, maximum-scale=0.5, user-scalable=0, width=device-width' />
+		<!--<meta name='viewport' content='initial-scale=0.5, maximum-scale=0.5, user-scalable=0, width=device-width' />-->
 		<!--<meta name='viewport' content='user-scalable=0'>-->
+
+
+		<!--<meta id="Viewport" name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0, user-scalable=no">-->
+		<meta id="Viewport" name='viewport'>
 		<link rel="stylesheet" href="assets/css/game.css">
-		<script src="phaser.min.js"></script>
-  	<script src = "game.js"></script>
+
 	</head>
 	<body>
 		<div class="portrait">
@@ -20,5 +23,9 @@
 			</div>
 		</div>
 		<div id="gameDiv" class="game"></div>
+		<script src="phaser.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/viewport.js"></script>
+  	<script src = "game.js"></script>
 	</body>
 </html>

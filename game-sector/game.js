@@ -1,5 +1,6 @@
 window.onload = function() {
 	//la definición del juego como, el 100% de la dimensión de la ventana del navegador
+	//var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio,Phaser.CANVAS,"gameDiv",{
 	var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio,Phaser.CANVAS,"gameDiv",{
 		preload:onPreload,
 		create:onCreate,
@@ -47,11 +48,12 @@ window.onload = function() {
 		carrete.height = 75;
 		carrete.scale.setTo(1,1);
 
-		leo = game.add.sprite(32, game.world.height - 100, 'leo');
+		leo = game.add.sprite(Math.round((game.width-77)/2), game.world.height - 100, 'leo');
 		leo.animations.add('neutro', [1], 10, true);
     leo.animations.add('feliz', [0], 10, true);
 		leo.animations.add('triste', [2], 100, true);
     leo.animations.play('neutro');
+		leo.scale.setTo(1,1);
 
 		linea = game.add.sprite(0, 200, 'linea');
 		linea.width = 175;
@@ -357,10 +359,10 @@ window.onload = function() {
 		leo.y = (game.height-167)-75;
 
 		upsText.x = game.world.centerX;
-		upsText.y = game.world.centerY - 80;
+		upsText.y = game.world.centerY - 100;
 
 		boton.x = game.world.centerX;
-		boton.y = game.world.centerY + 40 ;
+		boton.y = game.world.centerY + 0 ;
 
 		score.x = game.width-score.width - 135;
 		score.y = 170;

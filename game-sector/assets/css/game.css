@@ -34,14 +34,14 @@ body {
   position: relative;
 }
 .portrait__title {
-  font-size: 3.5em;
+  font-size: 3em;
   font-family: 'Oswald', sans-serif;
   font-weight: 400;
-  padding: 1em 0;
+  padding: 0.5em 0;
 }
 .portrait__text {
   font-weight: 400;
-  font-size: 2.14286em;
+  font-size: 2em;
   text-align: center;
 }
 .portrait__gira {
@@ -53,7 +53,7 @@ body {
   width: 8em;
   display: block;
   position: absolute;
-  bottom: 85px;
+  bottom: 70px;
 }
 .portrait__carrete {
   width: 100%;
@@ -66,10 +66,10 @@ body {
 }
 @media screen and (orientation:portrait) and (max-width: 767px) {
   .portrait{
-    display: block;
+    display: none;
   }
   .game{
-    display: none;
+    display: block;
   }
 }
 @media screen and (orientation:landscape) {
