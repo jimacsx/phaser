@@ -65,15 +65,15 @@ Sector.Game.prototype = {
 
 		this.physics.enable(this.gameCarrete, Phaser.Physics.ARCADE);
 		this.physics.enable(this.gameMove, Phaser.Physics.ARCADE);
-		this.gameMove.body.velocity.x = 100;
+		this.gameMove.body.velocity.x = 200;
 		this.physics.enable(this.gameMove2, Phaser.Physics.ARCADE);
-		this.gameMove2.body.velocity.x = 100;
+		this.gameMove2.body.velocity.x = 200;
 
 		//variables
 		this.gameStarted = true;
 		this.pausa = false;
 		this.velocityOscares = 200;
-		this.giro = 50;
+		this.giro = 100;
 		this.puntaje = 0;
 		this.cherryArray = [];
 		this.oscarArray = [];
@@ -142,12 +142,10 @@ Sector.Game.prototype = {
 		} else {
 			xrandom = xrandom;
 		}
-		var oscar = this.gameOscares.create(xrandom, -(Math.random()*800), 'oscar');
+		oscar = this.gameOscares.create(xrandom, -(Math.random()*800), 'oscar');
 		oscar.scale.setTo(1, 1);
     this.physics.arcade.enable(oscar);
-		console.log("velocityOscares: " +Math.round(this.velocityOscares));
     oscar.body.velocity.y = Math.round(this.velocityOscares);
-
 		//guardamos oscares para poder hacer la Pausa del juego
 		this.oscarArray.push(oscar);
 	},
@@ -209,7 +207,7 @@ Sector.Game.prototype = {
 	upLevel: function () {
 		this.velocityOscares += 25;
 		this.gameMove.body.velocity.x *= 1.2;
-		this.gameMove2.body.velocity.x *= 0.5;
+		this.gameMove2.body.velocity.x *= 0.75;
 	},
 	playAgain: function () {
 		//Hide text and button of "JUGAR OTRA VES"
@@ -242,9 +240,9 @@ Sector.Game.prototype = {
 		this.velocityOscares = 200;
 		this.puntaje = 0;
 		this.gameScore.setText(this.puntaje);
-		this.giro = 50;
-		this.gameMove.body.velocity.x = 100;
-		this.gameMove2.body.velocity.x = 100;
+		this.giro = 100;
+		this.gameMove.body.velocity.x = 200;
+		this.gameMove2.body.velocity.x = 200;
 	},
 	onResize: function () {
 		this.gameCarrete.y = this.world.height -75;
