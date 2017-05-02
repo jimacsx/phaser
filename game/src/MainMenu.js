@@ -25,6 +25,10 @@ Sector.MainMenu.prototype = {
 		this.playButton.input.useHandCursor = true;
 
 		this.gameLeo = this.add.sprite(Math.round((this.world.width-77)/2), this.world.height - 100, 'leo');
+		this.gameLeo.animations.add('feliz', [0], 10, true);
+		this.gameLeo.animations.add('neutro', [1], 10, true);
+		this.gameLeo.animations.add('triste', [2], 100, true);
+    this.gameLeo.animations.play('neutro');
 
 		//asignamos el color de fondo del juego
 		this.stage.backgroundColor = "#1d1f20";
@@ -54,7 +58,6 @@ Sector.MainMenu.prototype = {
 		this.gameLeo.y = (this.world.height-167)-75;
 	},
 	startGame: function() {
-		//this.game.state.start('Howto');
 		this.game.state.start('Game');
 	}
 };
