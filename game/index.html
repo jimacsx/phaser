@@ -6,7 +6,12 @@
 	<link rel="shortcut icon" href="" type="image/x-icon" />
 	<meta id="Viewport" name='viewport'>
 	<link rel="stylesheet" href="src/game.css">
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<!--<script src="src/phaser-arcade-physics.2.2.2.min.js"></script>-->
+	<script src="src/phaser.min.js"></script>
+	<script src="src/Boot.js"></script>
+	<script src="src/MainMenu.js"></script>
+	<script src="src/Game.js"></script>
 </head>
 <body>
 	<div class="portrait">
@@ -22,18 +27,10 @@
 			<img src="img/carrete-mobile.png" class="portrait__carrete" alt="carrete">
 		</div>
 	</div>
-	<div id="gameDiv" class="game">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-		<!--<script src="src/phaser-arcade-physics.2.2.2.min.js"></script>-->
-
-		<script src="src/phaser.min.js"></script>
-		<script src="src/Boot.js"></script>
-		<script src="src/MainMenu.js"></script>
-		<script src="src/Game.js"></script>
+	<div id="gameDiv" class="game"></div>
 		<script>
 		(function() {
-			var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS);
+			var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS,"gameDiv");
 			game.state.add('Boot', Sector.Boot);
 			game.state.add('MainMenu', Sector.MainMenu);
 			game.state.add('Game', Sector.Game);
@@ -41,6 +38,6 @@
 		})();
 		</script>
 		<script type="text/javascript" src="src/viewport.js"></script>
-	</div>
+
 </body>
 </html>
