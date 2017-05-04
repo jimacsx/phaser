@@ -1,6 +1,11 @@
 $(function(){
   $('#Viewport').attr('content', 'initial-scale=0.5, maximum-scale=0.5, minimum-scale=0, user-scalable=no');
+  changeViewport();
   $( window ).resize(function() {
+    changeViewport();
+  });
+
+  function changeViewport() {
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
       console.log("Es dispositivo");
       var ww = ( $(window).width() < window.screen.width ) ? $(window).width() : window.screen.width; //get proper width
@@ -24,5 +29,5 @@ $(function(){
         $('#Viewport').attr('content', 'initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=yes, width=' + ww);
       }
     }
-  });
+  }
 });

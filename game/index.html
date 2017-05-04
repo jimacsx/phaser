@@ -4,27 +4,43 @@
 	<meta charset="utf-8" />
 	<title>Sector Cine | Juego</title>
 	<link rel="shortcut icon" href="" type="image/x-icon" />
-	<meta id="Viewport" name='viewport' content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0">
-	<style>
-		body { margin: 0; }
-		canvas { margin: 0; }
-	</style>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script type="text/javascript" src="src/viewport.js"></script>
-	<script src="src/phaser-arcade-physics.2.2.2.min.js"></script>
-	<script src="src/Boot.js"></script>
-	<script src="src/MainMenu.js"></script>
-	<script src="src/Game.js"></script>
+	<meta id="Viewport" name='viewport'>
+	<link rel="stylesheet" href="src/game.css">
+
 </head>
 <body>
-<script>
-(function() {
-	var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS, 'game');
-	game.state.add('Boot', Sector.Boot);
-	game.state.add('MainMenu', Sector.MainMenu);
-	game.state.add('Game', Sector.Game);
-	game.state.start('Boot');
-})();
-</script>
+	<div class="portrait">
+		<div class="portrait__content">
+			<img src="img/logo-sectorcine.png" alt="logo sectorcine" class="logo">
+
+			<img src="img/gira-text.png" alt="logo sectorcine" class="gira-text">
+			<!--<h1 class="portrait__title">¡Ups! Algo pasó.</h1>
+			<p class="portrait__text">En lo que revisamos qué es, juega <br>con "Leo" ayudándolo a atrapar estatuillas.</p>
+			<h2 class="portrait__title">Gira tu teléfono</h2>-->
+			<img src="img/gira.svg" class="portrait__gira" alt="gira tu teléfono">
+			<img src="img/leeeo.png" class="portrait__leo" alt="leo">
+			<img src="img/carrete-mobile.png" class="portrait__carrete" alt="carrete">
+		</div>
+	</div>
+	<div id="gameDiv" class="game">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+		<!--<script src="src/phaser-arcade-physics.2.2.2.min.js"></script>-->
+
+		<script src="src/phaser.min.js"></script>
+		<script src="src/Boot.js"></script>
+		<script src="src/MainMenu.js"></script>
+		<script src="src/Game.js"></script>
+		<script>
+		(function() {
+			var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS);
+			game.state.add('Boot', Sector.Boot);
+			game.state.add('MainMenu', Sector.MainMenu);
+			game.state.add('Game', Sector.Game);
+			game.state.start('Boot');
+		})();
+		</script>
+		<script type="text/javascript" src="src/viewport.js"></script>
+	</div>
 </body>
 </html>
