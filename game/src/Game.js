@@ -36,10 +36,10 @@ Sector.Game.prototype = {
 		//Add the moves
 		x = this.rnd.integerInRange(10, this.world.width);
  		this.gameMove = this.add.sprite(x, 10, 'move');
-		this.gameMove.visible = true;
+		this.gameMove.visible = false;
 		x2 = this.rnd.integerInRange(10, this.world.width);
  		this.gameMove2 = this.add.sprite(x, 10, 'move');
-		this.gameMove2.visible = true;
+		this.gameMove2.visible = false;
 
 		//Sound
     this.sndPunto = this.add.audio('punto');
@@ -111,12 +111,12 @@ Sector.Game.prototype = {
 			//tiramos cherries de acuerdo a la posicion de move
 			if(this.gameMove2.body.velocity.x > 0 && this.gameMove2.x > this.giro){
 				this.gameMove2.body.velocity.x *= -1;
-				this.giro = this.rnd.integerInRange(0, this.gameMove2.x - 800);
+				this.giro = this.rnd.integerInRange(0, this.gameMove2.x - 400);
 				this.releaseOscar();
 			}
 			if(this.gameMove2.body.velocity.x < 0 && this.gameMove2.x < this.giro){
 				this.gameMove2.body.velocity.x *= -1;
-				this.giro = this.rnd.integerInRange(this.gameMove2.x + 800, this.world.width);
+				this.giro = this.rnd.integerInRange(this.gameMove2.x + 400, this.world.width);
 				//this.giro = this.rnd.integerInRange(0, this.gameMove.x - 50);
 				this.releaseCherry();
 			}
@@ -207,7 +207,7 @@ Sector.Game.prototype = {
 	upLevel: function () {
 		this.velocityOscares += 25;
 		this.gameMove.body.velocity.x *= 1.2;
-		this.gameMove2.body.velocity.x *= 0.75;
+		this.gameMove2.body.velocity.x *= 0.85;
 	},
 	playAgain: function () {
 		//Hide text and button of "JUGAR OTRA VES"
@@ -225,7 +225,7 @@ Sector.Game.prototype = {
 				return oscar.kill();
 			});
 			this.oscarArray = [];
-			//quitamos pausa en el juego
+			//unpaused game
 			this.pausa = false;
 			//revivimos los moves que arrejan oscares y cherries
 			this.gameMove.revive();

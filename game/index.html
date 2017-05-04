@@ -4,37 +4,27 @@
 	<meta charset="utf-8" />
 	<title>Sector Cine | Juego</title>
 	<link rel="shortcut icon" href="" type="image/x-icon" />
-	<meta id="Viewport" name='viewport'>
+	<meta id="Viewport" name='viewport' content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0">
 	<style>
-		body {
-			margin: 0;
-			/*background: #1d1f20;*/
-		}
-		canvas {
-			margin: 0;
-		}
+		body { margin: 0; }
+		canvas { margin: 0; }
 	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="src/viewport.js"></script>
 	<script src="src/phaser-arcade-physics.2.2.2.min.js"></script>
 	<script src="src/Boot.js"></script>
-	<script src="src/Preloader.js"></script>
 	<script src="src/MainMenu.js"></script>
-	<!--<script src="src/Howto.js"></script>-->
 	<script src="src/Game.js"></script>
-
 </head>
 <body>
 <script>
 (function() {
 	var game = new Phaser.Game(window.innerWidth * window.devicePixelRatio, window.innerHeight * window.devicePixelRatio, Phaser.CANVAS, 'game');
 	game.state.add('Boot', Sector.Boot);
-	game.state.add('Preloader', Sector.Preloader);
 	game.state.add('MainMenu', Sector.MainMenu);
-	//game.state.add('Howto', Sector.Howto);
 	game.state.add('Game', Sector.Game);
 	game.state.start('Boot');
 })();
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="src/viewport.js"></script>
 </body>
 </html>
